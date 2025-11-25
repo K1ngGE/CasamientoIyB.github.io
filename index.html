@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación a nuestra Boda - Ingrid y Brian</title>
+    <link rel="stylesheet" href="style.css"> <!-- Podés agregar estilos CSS aquí -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Playwrite+US+Trad+Guides&display=swap" rel="stylesheet">
+  <audio id="musicaBoda" loop>
+    <source src="musica/" type="audio/mpeg">
+</audio>
+<!-- Botón flotante bonito -->
+<div id="botonMusica" title="Pausar / Reproducir música">
+    <i class="fa-solid fa-volume-high" id="iconoMusica"></i>
+</div>
+<script>
+const audio = document.getElementById('musicaBoda');
+const boton = document.getElementById('botonMusica');
+const icono = document.getElementById('iconoMusica');
+
+audio.volume = 0.4;
+
+// Reproduce al primer toque/click en la página (funciona en celulares)
+document.body.addEventListener('click', function inicio() {
+    audio.play();
+    document.body.removeEventListener('click', inicio);
+}, { once: true });
+
+// Botón play/pause
+boton.addEventListener('click', (e) => {
+    e.stopPropagation(); // evita que se dispare el autoplay otra vez
+    if (audio.paused) {
+        audio.play();
+        icono.classList.replace('fa-circle-pause', 'fa-circle-play');
+        icono.classList.replace('fa-volume-xmark', 'fa-volume-high');
+    } else {
+        audio.pause();
+        icono.classList.replace('fa-circle-play', 'fa-circle-pause');
+        icono.classList.replace('fa-volume-high', 'fa-volume-xmark');
+    }
+});
+</script>
+</head>
+<body>
+    <header>
+      
+        <h1>¡Nos Casamos!</h1>
+        <p>Ingrid y Brian ❤️</p>
+        <p>Queremos compartir este día con vos.</p>
+        <img src="imagenes/001.jpg" alt="Foto de la pareja" style="max-width: 300px;"> <!-- Poné aquí la foto del anillo o el beso -->
+    </header>
+   
+
+    <section id="fecha">
+        <img src="icons/calendario.png" alt="Vestimenta" class="icono-seccion">
+        <h2>El Gran Día</h2>
+        <p>12 de Febrero de 2026</p>
+        <div id="countdown" class="countdown"></div>
+        <button onclick="addToCalendar()">Agendá la fecha en tu calendario</button>
+    </section>
+
+    <section id="detalles">
+        <h2>Detalles del Evento</h2>
+        <p>Horario - 12:00 hs</p>
+        <p>Direccion:El gaucho 125, localidad Gnral Rodriguez</p>
+        <img src="URL_DE_MAPA_O_FOTO_LUGAR.jpg" alt="Mapa o foto del lugar"> <!-- Podés embedear un mapa de Google aquí -->
+        <br><a href="https://maps.google.com/?q=[dirección]" target="_blank"><button>Cómo llegar</button></a>
+    </section>
+
+    <!-- Sección de fotos  -->
+    <section id="historia" class="story">
+        <h2>Nuestra Historia</h2>
+        <p>Aquí va el texto romántico inspirado en tu nota: "Y así, en este mundo loco, encontramos el privilegio de ser dos... ¿Pero por qué ser dos cuando podemos ser uno? Porque el amor no se cuenta fácilmente, es como un sueño que se hace realidad. [Agregá tu historia personal, con toques de risas, viajes y sueños como en el ejemplo]. Siempre juntos ❤️"</p>
+        <!-- Foto centrada -->
+    <div class="photo-container">
+        <img src="imagenes/003.jpg" alt="Foto romántica">
+    </div>
+    </section>
+
+    <section id="historia" class="story">
+        <h2>Nuestra Historia</h2>
+    <div class="photo-container">
+        <img src="imagenes/002.jpg" alt="Foto romántica">
+    </div>
+    <div class="photo-container">
+        <img src="imagenes/004.jpg" alt="Foto romántica">
+    </div>
+    </section>
+<!-- Sección de fotos  -->
+    <section id="vestimenta">
+        <img src="icons/woman-clothes.png" alt="Vestimenta" class="icono-seccion">
+        <h2>Código de Vestimenta</h2>
+        <p>Formal. (¡Nada de verde esmeralda, beysh y blanco!😉) </p>
+    </section>
+
+    <section id="regalos">
+        <img src="icons/regalos.png" alt="Vestimenta" class="icono-seccion">
+        <h2>Regalos</h2>
+        <p> Alias: brianalvez24</p>
+        <p>si querés sorprendernos, te dejamos nuestro CBU</p>
+        <button onclick="copyCBU()">Copiar CBU</button>
+    </section>
+
+    <!-- Sección de anillo -->
+<section id="historia" class="story">
+        <h2>Esperamos tu presencia</h2>
+        <!-- Foto centrada -->
+    <div class="photo-container">
+        <img src="imagenes/005.jpg" alt="Foto romántica">
+    </div>
+    </section>
+    <!-- Sección de anillo -->
+
+    <section id="rsvp">
+        <h2>Confirmá tu Asistencia</h2>
+        <p>•No se permiten niños/as</p>
+        <form action="https://formspree.io/f/xbleyrwb" method="POST"> <!-- Reemplaza con tu Formspree ID gratis -->
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+            <select name="asistencia" required>
+                <option value="">Elige una opcion</option>
+                <option value="si">¡Sí, voy a ir!</option>
+                <option value="no">No podré ir</option>
+            </select>
+            <input type="number" name="invitados" placeholder="Número de invitados" min="1">
+            <textarea name="mensaje" placeholder="Un mensajito para nosotros"></textarea>
+            <button type="submit">Enviar Confirmación</button>
+        </form>
+    </section>
+
+    <footer>
+        <b>Ingrid y Brian</b>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        const weddingDate = new Date('2026-02-12T12:00:00').getTime();
+        const countdownEl = document.getElementById('countdown');
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            countdownEl.innerHTML = `${days}d : ${hours}h : ${minutes}m : ${seconds}s`;
+            if (distance < 0) countdownEl.innerHTML = '¡Hoy es el día!';
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Agregar a Calendario (simplificado, usa el link del ejemplo)
+        function addToCalendar() {
+            const url = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda%20Ingrid%20y%20[Brian]&dates=[2026-02-12]&details=[12hs - formal]&location=[El gaucho 125, localidad Gnral Rodriguez]';
+            window.open(url, '_blank');
+        }
+
+        // Copiar CBU (personaliza el texto)
+        function copyCBU() {
+            const cbu = '0000003100063470473172';
+            navigator.clipboard.writeText(cbu).then(() => alert('¡Copiado! Gracias por el detalle. 💕'));
+        }
+    </script>
+</body>
+</html> 
