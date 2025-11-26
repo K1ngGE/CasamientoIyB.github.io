@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
+<html lang="es"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación a nuestra Boda - Ingrid y Brian</title>
     <link rel="stylesheet" href="style.css"> <!-- Podés agregar estilos CSS aquí -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Playwrite+US+Trad+Guides&display=swap" rel="stylesheet">
-  <audio id="musicaBoda" loop>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&amp;family=Playwrite+US+Trad+Guides&amp;display=swap" rel="stylesheet">
+  </head><body><audio id="musicaBoda" loop="">
     <source src="musica/" type="audio/mpeg">
 </audio>
 <!-- Botón flotante bonito -->
@@ -42,8 +41,8 @@ boton.addEventListener('click', (e) => {
     }
 });
 </script>
-</head>
-<body>
+
+
     <header>
       
         <h1>¡Nos Casamos!</h1>
@@ -57,7 +56,7 @@ boton.addEventListener('click', (e) => {
         <img src="icons/calendario.png" alt="Vestimenta" class="icono-seccion">
         <h2>El Gran Día</h2>
         <p>12 de Febrero de 2026</p>
-        <div id="countdown" class="countdown"></div>
+        <div id="countdown" class="countdown">77d : 16h : 0m : 30s</div>
         <button onclick="addToCalendar()">Agendá la fecha en tu calendario</button>
     </section>
 
@@ -115,15 +114,14 @@ boton.addEventListener('click', (e) => {
 
     <section id="rsvp">
         <h2>Confirmá tu Asistencia</h2>
-        <p>•No se permiten niños/as</p>
+        <p>¡•No se permiten niños/as!</p>
         <form action="https://formspree.io/f/xbleyrwb" method="POST"> <!-- Reemplaza con tu Formspree ID gratis -->
-            <input type="text" name="nombre" placeholder="Tu nombre" required>
-            <select name="asistencia" required>
+            <input type="text" name="nombre" placeholder="Nombre y Apellido" required="">
+            <select name="asistencia" required="">
                 <option value="">Elige una opcion</option>
                 <option value="si">¡Sí, voy a ir!</option>
                 <option value="no">No podré ir</option>
             </select>
-            <input type="number" name="invitados" placeholder="Número de invitados" min="1">
             <textarea name="mensaje" placeholder="Un mensajito para nosotros"></textarea>
             <button type="submit">Enviar Confirmación</button>
         </form>
@@ -162,5 +160,5 @@ boton.addEventListener('click', (e) => {
             navigator.clipboard.writeText(cbu).then(() => alert('¡Copiado! Gracias por el detalle. 💕'));
         }
     </script>
-</body>
-</html> 
+
+ </body></html>
